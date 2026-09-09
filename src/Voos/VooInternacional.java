@@ -1,4 +1,6 @@
-public abstract class VooDomestico extends Voo {
+package Voos;
+
+public abstract class VooInternacional extends Voo {
 
 	private String Num;
 
@@ -36,6 +38,10 @@ public abstract class VooDomestico extends Voo {
 
 	public void exibirResumo() {
 
+	}
+
+	public boolean autorizacao() {
+		return false;
 	}
 
 }
