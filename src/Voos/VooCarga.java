@@ -1,4 +1,5 @@
 package Voos;
+import  java.util.Scanner;
 
 public class VooCarga extends Voo {
 
@@ -16,6 +17,17 @@ public class VooCarga extends Voo {
 
 	private boolean situaçãoInsp;
 
+	public void cadastraVoo(Scanner in) {
+
+	}
+
+	public void exibirResumo(){
+
+	}
+
+	public void atualizaDocumento(Scanner in){
+	}
+
 	public double calcularCusto() {
 		return 0;
 	}
@@ -28,7 +40,7 @@ public class VooCarga extends Voo {
 		return false;
 	}
 
-	public String pendencia() {return null;}
+	public void pendencia() {}
 
 }
 

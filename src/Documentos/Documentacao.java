@@ -4,19 +4,21 @@ import java.util.Scanner;
 
 public abstract class Documentacao {
     private String cm;
-    private Boolean ca;
-    private Boolean car;
-    private Boolean lea;
-    private Boolean reta;
-    private Boolean eo;
+    private boolean ca;
+    private boolean car;
+    private boolean lea;
+    private boolean reta;
+    private boolean eo;
+    private boolean db;
 
-    public Documentacao(String cm, Boolean ca, Boolean car, Boolean lea, Boolean  reta, Boolean eo) {
+    public Documentacao(String cm, boolean ca, boolean car, boolean lea, boolean  reta, boolean eo, boolean db) {
         this.cm = cm;
         this.ca = ca;
         this.car = car;
         this.lea = lea;
         this.reta = reta;
         this.eo = eo;
+        this.db = db;
     }
 
     public Documentacao(){
@@ -26,6 +28,15 @@ public abstract class Documentacao {
         this.lea = false;
         this.reta = false;
         this.eo = false;
+        this.db = false;
+    }
+
+    public boolean getDb() {
+        return db;
+    }
+
+    public void setDb(boolean db) {
+        this.db = db;
     }
 
     public String getCm() {
@@ -36,42 +47,48 @@ public abstract class Documentacao {
         this.cm = cm;
     }
 
-    public Boolean getCa() {
+    public boolean getCa() {
         return ca;
     }
 
-    public void setCa(Boolean ca) {
+    public void setCa(boolean ca) {
         this.ca = ca;
     }
 
-    public Boolean getCar() {
+    public boolean getCar() {
         return car;
     }
 
-    public void setCar(Boolean car) {
+    public void setCar(boolean car) {
         this.car = car;
     }
 
-    public Boolean getLea() {
+    public boolean getLea() {
         return lea;
     }
 
-    public void setLea(Boolean lea) {
+    public void setLea(boolean lea) {
         this.lea = lea;
     }
 
-    public Boolean getReta() {
+    public boolean getReta() {
         return reta;
     }
 
-    public abstract void setReta(Boolean reta);
+    public void setReta(boolean reta) {
+        this.reta = reta;
+    }
 
-    public Boolean getEo(){
+    public boolean getEo() {
         return eo;
     }
 
-    public abstract void setEo(Boolean eo);
+    public void setEo(boolean eo) {
+        this.eo = eo;
+    }
 
     public abstract boolean verifyCa();
+
+    public abstract void cadastraDocument(Scanner in);
 
 }

@@ -5,7 +5,7 @@ import Documentos.Documentacao;
 
 import java.util.Scanner;
 
-public abstract class VooDomestico extends Voo {
+public class VooDomestico extends Voo {
 
 	private String num;
 
@@ -31,38 +31,29 @@ public abstract class VooDomestico extends Voo {
 		this.combustivel = combustivel;
 	}
 
+	public VooDomestico() {
+		this.num = "";
+		this.aeronave = "";
+		this.companhia = "";
+		this.origem = "";
+		this.destino = "";
+		this.documentacao = new DocDom();
+		this.combustivel = 0;
+	}
+
 	@Override
-	public void cadastraDocumento(Scanner in) {
-		DocDom doc = new DocDom();
+	public void cadastraVoo(Scanner in) {
+		System.out.println("Digite o número do voo");
+		this.num = in.nextLine();
 
-		System.out.println("Digite a Matricula da Aeronave: ");
-		String cm =  in.nextLine();
-		in.nextLine();
-		doc.setCm(cm);
+		System.out.println("Digite a matricula da aeronave");
+		this.aeronave = in.nextLine();
 
-		System.out.println("===Responda as proximas verificações com true ou false=== ");
+		documentacao.cadastraDocument(in);
+	}
 
-		System.out.println("A aeronave apresenta Certificado de Aeronavigabilidade(CA)?");
-		Boolean ca = in.nextBoolean();
-		doc.setCa(ca);
-
-		System.out.println("A aeronave apresenta Certificado de Ruído?");
-		Boolean car = in.nextBoolean();
-		doc.setCar(car);
-
-		System.out.println("A aeronave apresenta Licença de Estação?");
-		Boolean lea = in.nextBoolean();
-		doc.setLea(lea);
-
-		System.out.println("A aeronave apresenta os Seguros Obrigatótios(RETA)?");
-		Boolean reta = in.nextBoolean();
-		doc.setReta(reta);
-
-		System.out.println("As Especificações Operacionais estão anexas e completas?");
-		Boolean eo = in.nextBoolean();
-		doc.setEo(eo);
-
-		documentacao = doc;
+	public void atualizaDocumento(Scanner in){
+		documentacao.cadastraDocument(in);
 	}
 
 	@Override
@@ -77,25 +68,77 @@ public abstract class VooDomestico extends Voo {
 
 	@Override
 	public boolean autorizacao() {
-		boolean autorizado = this.verifyCd();
-		return autorizado;
+		if (!this.aeronave.equalsIgnoreCase(documentacao.getCm())){
+			return false;
+		}
+		else if (!documentacao.verifyCa()){
+			return false;
+		}
+
+		else if (!documentacao.getCar()){
+			return false;
+		}
+
+		else if (!documentacao.getLea()){
+			return false;
+		}
+		else if (!documentacao.getReta()){
+			return false;
+		}
+		else if (!documentacao.getEo()){
+			return false;
+		}
+		else if (!documentacao.getDb()){
+			return false;
+		}
+		return true;
 	}
 
 	@Override
-	public String pendencia() {
-		if (!documentacao.verifyCa()){
-			return "A aeronave não apresenta o seguinte documento: CERTIFICADO DE AERONAVEGABILIDADE";
+	public void pendencia() {
+		if (!this.aeronave.equalsIgnoreCase(documentacao.getCm())){
+			System.out.println("Matricula difere na documentação da aeronave");
 		}
-		return "Aeronave pronta para decolagem!";
+
+		if (!documentacao.verifyCa()){
+			System.out.println("A aeronave não apresenta o seguinte documento: CERTIFICADO DE AERONAVEGABILIDADE");
+		}
+
+		if (!documentacao.getCar()){
+			System.out.println("A aeronave não apresenta o seguinte documento: CERTIFICADO DE RUÍDO");
+		}
+
+		if (!documentacao.getLea()){
+			System.out.println("A aeronave não apresenta o seguinte documento: LICENÇA DE ESTAÇÃO");
+		}
+		if (!documentacao.getReta()){
+			System.out.println("A aeronave não apresenta os SEGUROS OBRIGATÓRIOS");
+		}
+		if (!documentacao.getEo()){
+			System.out.println("A aeronave não apresenta ESPECIFICAÇÕES OPERACIONAIS");
+		}
+		if (!documentacao.getDb()){
+			System.out.println("A aeronave não emitiu DIARIO DE BORDO");
+		}
 	}
 
 	@Override
 	public String getTipo() {
-		return null;
+		return "Voo Domestico";
 	}
 
 	@Override
 	public void exibirResumo() {
+		System.out.println("==Voo Domestico==");
+		System.out.println("Numero do voo: " + this.num);
+		System.out.println("Matricula da Aeronave: " + this.aeronave);
+		System.out.println("Companhia: " + this.companhia);
+		System.out.println("Origem: " + this.origem);
+		System.out.println("Destino: " + this.destino);
+		System.out.println("Combustivel: " + this.combustivel);
+		System.out.println("Documentação Regularizada: " + autorizacao());
+		System.out.println("Pedências: ");
+		pendencia();
 
 	}
 

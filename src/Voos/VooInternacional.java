@@ -1,5 +1,7 @@
 package Voos;
 
+import java.util.Scanner;
+
 public abstract class VooInternacional extends Voo {
 
 	private String Num;
@@ -16,6 +18,9 @@ public abstract class VooInternacional extends Voo {
 
 	private int documentação;
 
+	public void atualizaDocumento(Scanner in){
+	}
+
 	public double calcularCusto() {
 		return 0;
 	}
@@ -28,8 +33,8 @@ public abstract class VooInternacional extends Voo {
 		return false;
 	}
 
-	public String pendencia() {
-		return null;
+	public void pendencia() {
+
 	}
 
 	public String getTipo() {

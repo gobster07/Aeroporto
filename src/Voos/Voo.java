@@ -99,28 +99,22 @@ public abstract class Voo implements aut {
 
 	public double calcularCombustivel(){return-1;};
 
-	public abstract String pendencia();
 
 	public String getTipo() {
 		return null;
 	}
 
+	public abstract void pendencia();
+
 	public abstract void exibirResumo();
 
-	public abstract void cadastraDocumento(Scanner in);
+	public abstract void cadastraVoo(Scanner in);
 
-	public boolean verifyCd(){
-		boolean verifica = false;
-		if(this.num.equalsIgnoreCase(documentacao.getCm())){
-			verifica = true;
-		}
-		return verifica;
-	}
+	public abstract boolean autorizacao();
 
-	@Override
-	public boolean autorizacao() {
-		return false;
-	}
+	public abstract void atualizaDocumento(Scanner in);
+
+
 
 
 	
