@@ -17,6 +17,10 @@ public class VooCarga extends Voo {
 
 	private boolean situaçãoInsp;
 
+	public String getTipo(){
+		return "Cargo";
+	}
+
 	public void cadastraVoo(Scanner in) {
 
 	}

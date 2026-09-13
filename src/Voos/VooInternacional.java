@@ -29,9 +29,6 @@ public abstract class VooInternacional extends Voo {
 		return 0;
 	}
 
-	public boolean autorização() {
-		return false;
-	}
 
 	public void pendencia() {
 

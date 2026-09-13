@@ -62,38 +62,47 @@ public class DocumentoDomestico extends Documentos {
 
 
 
+	@Override
 	public String getCm() {
 		return cm;
 	}
 
+	@Override
 	public void setCm(String cm) {
 		this.cm = cm;
 	}
 
+	@Override
 	public boolean getCa() {
 		return ca;
 	}
 
+	@Override
 	public void setCa(boolean ca) {
 		this.ca = ca;
 	}
 
+	@Override
 	public boolean getCar() {
 		return car;
 	}
 
+	@Override
 	public void setCar(boolean car) {
 		this.car = car;
 	}
 
+	@Override
 	public boolean getDb() {
 		return db;
 	}
 
+	@Override
 	public void setDb(boolean db) {
 		this.db = db;
 	}
 
+	@Override
 	public boolean getLea() {
 		return lea;
 	}
@@ -103,16 +112,20 @@ public class DocumentoDomestico extends Documentos {
 		this.lea = lea;
 	}
 
+	@Override
 	public boolean getReta() {
 		return reta;
 	}
 
+	@Override
 	public void setReta(boolean reta) {
 		this.reta = reta;
 	}
 
+	@Override
 	public boolean getEo(){return this.eo;}
 
+	@Override
 	public void setEo(boolean eo){
 		this.eo = eo;
 	}

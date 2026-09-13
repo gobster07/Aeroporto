@@ -8,64 +8,45 @@ import java.util.Scanner;
 
 public class VooDomestico extends Voo {
 
-	private String num;
-
-	private String aeronave;
-
-	private String companhia;
-
-	private double combustivel;
-
-	private String origem;
-
-	private String destino;
-
 	private Documentos documentacao;
 
-	public VooDomestico(String num, String aeronave, String companhia, String origem, String destino, Documentos documentacao, double combustivel) {
-		this.num = num;
-		this.aeronave = aeronave;
-		this.companhia = companhia;
-		this.origem = origem;
-		this.destino = destino;
-		this.documentacao = documentacao;
-		this.combustivel = combustivel;
-	}
 
 	public VooDomestico() {
-		this.num = "";
-		this.aeronave = "";
-		this.companhia = "";
-		this.origem = "";
-		this.destino = "";
+		super();
 		this.documentacao = new DocumentoDomestico();
-		this.combustivel = 0;
 	}
 
 	@Override
 	public void cadastraVoo(Scanner in) {
 		System.out.println("Digite o número do voo");
-		this.num = in.nextLine();
+		String num = in.nextLine();
+		super.setNum(num);
 
 		System.out.println("Digite a Matricula da aeronave");
-		this.aeronave = in.nextLine();
+		String aeronave = in.nextLine();
+		super.setAeronave(aeronave);
 
 		System.out.println("Digite a Companhia da aeronave");
-		this.companhia = in.nextLine();
+		String companhia = in.nextLine();
+		super.setCompanhia(companhia);
 
 		System.out.println("Digite o aeroporto de origem da aeronave");
-		this.origem = in.nextLine();
+		String origem = in.nextLine();
+		super.setOrigem(origem);
 
 		System.out.println("Digite o aeroporto de destino da aeronave");
-		this.destino = in.nextLine();
+		String destino = in.nextLine();
+		super.setDestino(destino);
 
 		System.out.println("Digite a quantidade de combustivel no tanque");
-		this.combustivel = in.nextDouble();
+		double combustivel = in.nextDouble();
+		super.setCombustivel(combustivel);
 		in.nextLine();
 
 		documentacao.cadastraDocumento(in);
 	}
 
+	@Override
 	public void atualizaDocumento(Scanner in){
 		documentacao.cadastraDocumento(in);
 	}
@@ -82,7 +63,7 @@ public class VooDomestico extends Voo {
 
 	@Override
 	public boolean autorizacao() {
-		if (!this.aeronave.equalsIgnoreCase(documentacao.getCm())){
+		if (super.getAeronave().equalsIgnoreCase(documentacao.getCm())){
 			return false;
 		}
 		else if (!documentacao.getCa()){
@@ -102,7 +83,7 @@ public class VooDomestico extends Voo {
 		else if (!documentacao.getEo()){
 			return false;
 		}
-		else if (!documentacao.getDb()){
+		else if (documentacao.getDb()){
 			return false;
 		}
 		return true;
@@ -110,7 +91,7 @@ public class VooDomestico extends Voo {
 
 	@Override
 	public void pendencia() {
-		if (!this.aeronave.equalsIgnoreCase(documentacao.getCm())){
+		if (!super.getAeronave().equalsIgnoreCase(documentacao.getCm())){
 			System.out.println("Matricula difere na documentação da aeronave");
 		}
 
@@ -144,12 +125,12 @@ public class VooDomestico extends Voo {
 	@Override
 	public void exibirResumo() {
 		System.out.println("==Voo Domestico==");
-		System.out.println("Numero do voo: " + this.num);
-		System.out.println("Matricula da Aeronave: " + this.aeronave);
-		System.out.println("Companhia: " + this.companhia);
-		System.out.println("Origem: " + this.origem);
-		System.out.println("Destino: " + this.destino);
-		System.out.println("Combustivel: " + this.combustivel);
+		System.out.println("Numero do voo: " + super.getNum());
+		System.out.println("Matricula da Aeronave: " + super.getAeronave());
+		System.out.println("Companhia: " + super.getCompanhia());
+		System.out.println("Origem: " + super.getOrigem());
+		System.out.println("Destino: " + super.getDestino());
+		System.out.println("Combustivel: " + super.getCombustivel());
 		System.out.println("Documentação Regularizada: " + autorizacao());
 		System.out.println("Pedências: ");
 		pendencia();

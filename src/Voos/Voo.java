@@ -14,21 +14,16 @@ public abstract class Voo implements aut {
 
 	private double combustivel;
 
+	private double distancia;
+
+	private double consumo;
+
 	private String origem;
 
 	private String Destino;
 
 	private Documentos documentacao;
 
-	public Voo(String num, String aeronave, String companhia, double combustivel, String origem, String destino, Documentos documentacao) {
-		this.num = num;
-		this.aeronave = aeronave;
-		this.companhia = companhia;
-		this.combustivel = combustivel;
-		this.origem = origem;
-		this.Destino = destino;
-		this.documentacao = documentacao;
-	}
 
 	public Voo(){
 		this.num = null;
@@ -37,8 +32,8 @@ public abstract class Voo implements aut {
 		this.combustivel = 0;
 		this.origem = null;
 		this.Destino = null;
-		this.documentacao = null;
 	}
+
 
 	public String getNum() {
 		return num;
@@ -98,12 +93,10 @@ public abstract class Voo implements aut {
 
 	public abstract double calcularCusto();
 
-	public double calcularCombustivel(){return-1;};
+	public abstract double calcularCombustivel();
 
 
-	public String getTipo() {
-		return null;
-	}
+	public abstract String getTipo();
 
 	public abstract void pendencia();
 

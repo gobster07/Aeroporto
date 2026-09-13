@@ -1,11 +1,8 @@
 package Documetacao;
 
-import Voos.Voo;
-
 import java.util.Scanner;
 
-public class DocumentoCargo extends Documentos {
-
+public class DocumentoInternacional extends Documentos {
     private String cm;
 
     private boolean ca;
@@ -14,22 +11,24 @@ public class DocumentoCargo extends Documentos {
 
     private boolean db;
 
-    private boolean lea;
 
+    private boolean lea;
 
     private boolean reta;
 
     private boolean eo;
 
-    private boolean mc;
+    private boolean fp;
 
-    private boolean awb;
-
-    private boolean notoc;
-
-    private boolean sd;
-
-    private boolean nf;
+    public DocumentoInternacional(){
+        this.cm = "";
+        this.ca = false;
+        this.db = false;
+        this.car = false;
+        this.lea = false;
+        this.reta = false;
+        this.eo = false;
+    }
 
     @Override
     public void cadastraDocumento(Scanner in) {
@@ -38,6 +37,10 @@ public class DocumentoCargo extends Documentos {
         this.setCm(cm);
 
         System.out.println("Responda as proximas perguntas com true ou false");
+
+        System.out.println("Todos os tripulantes possume passaporte válido?");
+        boolean fp = in.nextBoolean();
+        this.setFp(fp);
 
         System.out.println("A aeronave apresenta certificado de aeronavigabilidade?");
         boolean ca = in.nextBoolean();
@@ -62,26 +65,15 @@ public class DocumentoCargo extends Documentos {
         System.out.println("A aeronave apresenta Especificações Operacionais");
         boolean eo = in.nextBoolean();
         this.setEo(eo);
+    }
 
-        System.out.println("O manifesto de carga doi emitido?");
-        boolean mc =  in.nextBoolean();
-        this.setMc(mc);
 
-        System.out.println("o documento de Conhecimento de Transporte áereo foi emitido");
-        boolean awb = in.nextBoolean();
-        this.setAwb(awb);
+    public boolean getFp() {
+        return fp;
+    }
 
-        System.out.println("O documento de Notificação ao Capitão foi emitido?");
-        boolean notoc = in.nextBoolean();
-        this.setNotoc(notoc);
-
-        System.out.println("A Declaração do Expedidor foi Emitida");
-        boolean sd = in.nextBoolean();
-        this.setSd(sd);
-
-        System.out.println("As Notas Fiscaís foram emitidas?");
-        boolean nf = in.nextBoolean();
-        this.setNf(nf);
+    public void setFp(boolean fp) {
+        this.fp = fp;
     }
 
     @Override
@@ -152,50 +144,5 @@ public class DocumentoCargo extends Documentos {
         this.eo = eo;
     }
 
-    public boolean getNf() {
-        return nf;
-    }
 
-    public void setNf(boolean nf) {
-        this.nf = nf;
-    }
-
-    public boolean getSd() {
-        return sd;
-    }
-
-    public void setSd(boolean sd) {
-        this.sd = sd;
-    }
-
-    public boolean getNotoc() {
-        return notoc;
-    }
-
-    public void setNotoc(boolean notoc) {
-        this.notoc = notoc;
-    }
-
-    public boolean getAwb() {
-        return awb;
-    }
-
-    public void setAwb(boolean awb) {
-        this.awb = awb;
-    }
-
-    public boolean getMc() {
-        return mc;
-    }
-
-    public void setMc(boolean mc) {
-        this.mc = mc;
-    }
 }
-
-
-
-
-
-
-
