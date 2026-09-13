@@ -1,6 +1,7 @@
 package Voos;
 
-import Documentos.Documentacao;
+import Documetacao.Documentos;
+
 import java.util.Scanner;
 
 public abstract class Voo implements aut {
@@ -17,9 +18,9 @@ public abstract class Voo implements aut {
 
 	private String Destino;
 
-	private Documentacao documentacao;
+	private Documentos documentacao;
 
-	public Voo(String num, String aeronave, String companhia, double combustivel, String origem, String destino, Documentacao documentacao) {
+	public Voo(String num, String aeronave, String companhia, double combustivel, String origem, String destino, Documentos documentacao) {
 		this.num = num;
 		this.aeronave = aeronave;
 		this.companhia = companhia;
@@ -87,11 +88,11 @@ public abstract class Voo implements aut {
 		Destino = destino;
 	}
 
-	public Documentacao getDocumentacao() {
+	public Documentos getDocumentacao() {
 		return documentacao;
 	}
 
-	public void setDocumentacao(Documentacao documentacao) {
+	public void setDocumentacao(Documentos documentacao) {
 		this.documentacao = documentacao;
 	}
 
