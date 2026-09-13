@@ -6,21 +6,25 @@ public class DocumentoDomestico extends Documentos {
 
 	private boolean ca;
 
+	private boolean car;
+
 	private boolean db;
 
-	private boolean cva;
 
-	private boolean radio;
+	private boolean lea;
 
 	private boolean reta;
+
+	private boolean eo;
 
 	public DocumentoDomestico(){
 		this.cm = "";
 		this.ca = false;
 		this.db = false;
-		this.cva = false;
-		this.radio = false;
+		this.car = false;
+		this.lea = false;
 		this.reta = false;
+		this.eo = false;
 	}
 
 	public void cadastraDocumento(Scanner in) {
@@ -35,7 +39,28 @@ public class DocumentoDomestico extends Documentos {
 		this.setCa(ca);
 
 		System.out.println("A aeronave apresenta diário de bordo?");
+		boolean db = in.nextBoolean();
+		this.setDb(db);
+
+		System.out.println("A aeronave apresenta Certificado de Ruído?");
+		boolean car = in.nextBoolean();
+		this.setCar(car);
+
+		System.out.println("A aeronave apresenta Licença de Estação?");
+		boolean lea = in.nextBoolean();
+		this.setLea(lea);
+
+		System.out.println("A aeronave apresenta Seguros Obrigatórios Regularizados?");
+		boolean reta = in.nextBoolean();
+		this.setReta(reta);
+
+		System.out.println("A aeronave apresenta Especificações Operacionais");
+		boolean eo = in.nextBoolean();
+		this.setEo(eo);
 	}
+
+
+
 
 	public String getCm() {
 		return cm;
@@ -45,7 +70,7 @@ public class DocumentoDomestico extends Documentos {
 		this.cm = cm;
 	}
 
-	public boolean isCa() {
+	public boolean getCa() {
 		return ca;
 	}
 
@@ -53,7 +78,15 @@ public class DocumentoDomestico extends Documentos {
 		this.ca = ca;
 	}
 
-	public boolean isDb() {
+	public boolean getCar() {
+		return car;
+	}
+
+	public void setCar(boolean car) {
+		this.car = car;
+	}
+
+	public boolean getDb() {
 		return db;
 	}
 
@@ -61,27 +94,26 @@ public class DocumentoDomestico extends Documentos {
 		this.db = db;
 	}
 
-	public boolean isCva() {
-		return cva;
+	public boolean getLea() {
+		return lea;
 	}
 
-	public void setCva(boolean cva) {
-		this.cva = cva;
+	@Override
+	public void setLea(boolean lea) {
+		this.lea = lea;
 	}
 
-	public boolean isRadio() {
-		return radio;
-	}
-
-	public void setRadio(boolean radio) {
-		this.radio = radio;
-	}
-
-	public boolean isReta() {
+	public boolean getReta() {
 		return reta;
 	}
 
 	public void setReta(boolean reta) {
 		this.reta = reta;
+	}
+
+	public boolean getEo(){return this.eo;}
+
+	public void setEo(boolean eo){
+		this.eo = eo;
 	}
 }

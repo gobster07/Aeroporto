@@ -1,7 +1,8 @@
 package Voos;
 
-import Documentos.DocDom;
-import Documentos.Documentacao;
+
+import Documetacao.DocumentoDomestico;
+import Documetacao.Documentos;
 
 import java.util.Scanner;
 
@@ -19,9 +20,9 @@ public class VooDomestico extends Voo {
 
 	private String destino;
 
-	private DocDom documentacao;
+	private Documentos documentacao;
 
-	public VooDomestico(String num, String aeronave, String companhia, String origem, String destino, DocDom documentacao, double combustivel) {
+	public VooDomestico(String num, String aeronave, String companhia, String origem, String destino, Documentos documentacao, double combustivel) {
 		this.num = num;
 		this.aeronave = aeronave;
 		this.companhia = companhia;
@@ -37,7 +38,7 @@ public class VooDomestico extends Voo {
 		this.companhia = "";
 		this.origem = "";
 		this.destino = "";
-		this.documentacao = new DocDom();
+		this.documentacao = new DocumentoDomestico();
 		this.combustivel = 0;
 	}
 
@@ -46,14 +47,27 @@ public class VooDomestico extends Voo {
 		System.out.println("Digite o número do voo");
 		this.num = in.nextLine();
 
-		System.out.println("Digite a matricula da aeronave");
+		System.out.println("Digite a Matricula da aeronave");
 		this.aeronave = in.nextLine();
 
-		documentacao.cadastraDocument(in);
+		System.out.println("Digite a Companhia da aeronave");
+		this.companhia = in.nextLine();
+
+		System.out.println("Digite o aeroporto de origem da aeronave");
+		this.origem = in.nextLine();
+
+		System.out.println("Digite o aeroporto de destino da aeronave");
+		this.destino = in.nextLine();
+
+		System.out.println("Digite a quantidade de combustivel no tanque");
+		this.combustivel = in.nextDouble();
+		in.nextLine();
+
+		documentacao.cadastraDocumento(in);
 	}
 
 	public void atualizaDocumento(Scanner in){
-		documentacao.cadastraDocument(in);
+		documentacao.cadastraDocumento(in);
 	}
 
 	@Override
@@ -71,7 +85,7 @@ public class VooDomestico extends Voo {
 		if (!this.aeronave.equalsIgnoreCase(documentacao.getCm())){
 			return false;
 		}
-		else if (!documentacao.verifyCa()){
+		else if (!documentacao.getCa()){
 			return false;
 		}
 
@@ -100,7 +114,7 @@ public class VooDomestico extends Voo {
 			System.out.println("Matricula difere na documentação da aeronave");
 		}
 
-		if (!documentacao.verifyCa()){
+		if (!documentacao.getCa()){
 			System.out.println("A aeronave não apresenta o seguinte documento: CERTIFICADO DE AERONAVEGABILIDADE");
 		}
 
