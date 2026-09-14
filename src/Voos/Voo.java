@@ -22,7 +22,6 @@ public abstract class Voo implements aut {
 
 	private String Destino;
 
-	private Documentos documentacao;
 
 
 	public Voo(){
@@ -83,18 +82,10 @@ public abstract class Voo implements aut {
 		Destino = destino;
 	}
 
-	public Documentos getDocumentacao() {
-		return documentacao;
-	}
-
-	public void setDocumentacao(Documentos documentacao) {
-		this.documentacao = documentacao;
-	}
 
 	public abstract double calcularCusto();
 
 	public abstract double calcularCombustivel();
-
 
 	public abstract String getTipo();
 

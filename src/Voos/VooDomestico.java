@@ -83,7 +83,7 @@ public class VooDomestico extends Voo {
 		else if (!documentacao.getEo()){
 			return false;
 		}
-		else if (documentacao.getDb()){
+		else if (!documentacao.getDb()){
 			return false;
 		}
 		return true;

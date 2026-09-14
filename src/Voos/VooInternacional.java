@@ -2,7 +2,7 @@ package Voos;
 
 import java.util.Scanner;
 
-public abstract class VooInternacional extends Voo {
+public class VooInternacional extends Voo {
 
 	private String Num;
 
@@ -18,6 +18,12 @@ public abstract class VooInternacional extends Voo {
 
 	private int documentação;
 
+	@Override
+	public void cadastraVoo(Scanner in) {
+
+	}
+
+	@Override
 	public void atualizaDocumento(Scanner in){
 	}
 
