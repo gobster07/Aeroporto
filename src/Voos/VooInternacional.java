@@ -1,17 +1,18 @@
 package Voos;
 
 import java.util.Scanner;
+import Documetacao.DocumentoInternacional;
 
 public class VooInternacional extends Voo {
 
-	private int documentacao;
+	private DocumentoInternacional documentacao;
 	private int nPassageiros;
 
-	public int getDocumentacao() {
+	public DocumentoInternacional getDocumentacao() {
 		return documentacao;
 	}
 
-	public void setDocumentacao(int documentacao) {
+	public void setDocumentacao(DocumentoInternacional documentacao) {
 		this.documentacao = documentacao;
 	}
 
@@ -73,6 +74,33 @@ public class VooInternacional extends Voo {
 	}
 
 	public void pendencia(){
+		if (!super.getAeronave().equalsIgnoreCase(documentacao.getCm())){
+			System.out.println("Matricula difere na documentação da aeronave");
+		}
+
+		if (!documentacao.getCa()){
+			System.out.println("A aeronave não apresenta o seguinte documento: CERTIFICADO DE AERONAVEGABILIDADE");
+		}
+
+		if (!documentacao.getCar()){
+			System.out.println("A aeronave não apresenta o seguinte documento: CERTIFICADO DE RUÍDO");
+		}
+
+		if (!documentacao.getLea()){
+			System.out.println("A aeronave não apresenta o seguinte documento: LICENÇA DE ESTAÇÃO");
+		}
+		if (!documentacao.getReta()){
+			System.out.println("A aeronave não apresenta os SEGUROS OBRIGATÓRIOS");
+		}
+		if (!documentacao.getEo()){
+			System.out.println("A aeronave não apresenta ESPECIFICAÇÕES OPERACIONAIS");
+		}
+		if (!documentacao.getDb()){
+			System.out.println("A aeronave não emitiu DIARIO DE BORDO");
+		}
+		if(!documentacao.getFp()){
+			System.out.println("A tripulacao nao apresentou passaporte valido");
+		}
 	}
 
 	public String getTipo() {

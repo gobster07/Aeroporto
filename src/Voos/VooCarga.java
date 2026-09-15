@@ -1,7 +1,9 @@
 package Voos;
 import  java.util.Scanner;
+import Documetacao.DocumentoCargo;
 
 public class VooCarga extends Voo {
+	private DocumentoCargo documentacao;
 
 	private double peso;
 
@@ -17,8 +19,16 @@ public class VooCarga extends Voo {
 		this.peso = peso;
 	}
 
+	public DocumentoCargo getDocumentacao() {
+		return documentacao;
+	}
+
+	public void setDocumentacao(DocumentoCargo documentacao) {
+		this.documentacao = documentacao;
+	}
+
 	@Override
-	public String getTipo(){
+	public String getTipo() {
 		return "Cargo";
 	}
 
@@ -54,33 +64,71 @@ public class VooCarga extends Voo {
 	}
 
 	@Override
-	public void exibirResumo(){
+	public void exibirResumo() {
 
 	}
 
 	@Override
-	public void atualizaDocumento(Scanner in){
+	public void atualizaDocumento(Scanner in) {
 	}
+
 	@Override
 	public double calcularCombustivel() {
 
-		double combTotal = (super.getDistancia()*0.15)+(peso*0.02);
+		double combTotal = (super.getDistancia() * 0.15) + (peso * 0.02);
 		return combTotal;
 	}
+
 	@Override
 	public double calcularCusto() {
-		double custoTotal = (super.getDistancia()*8.5)+(peso*1.5);
+		double custoTotal = (super.getDistancia() * 8.5) + (peso * 1.5);
 		return custoTotal;
 	}
 
 	@Override
 	public boolean autorizacao() {
-		return false;
+
 	}
 
 	@Override
-	public void pendencia() {}
+	public void pendencia() {
+		if (!super.getAeronave().equalsIgnoreCase(documentacao.getCm())){
+			System.out.println("Matricula difere na documentação da aeronave");
+		}
+		if (!documentacao.getCa()){
+			System.out.println("A aeronave não apresenta o seguinte documento: CERTIFICADO DE AERONAVEGABILIDADE");
+		}
 
+		if (!documentacao.getCar()){
+			System.out.println("A aeronave não apresenta o seguinte documento: CERTIFICADO DE RUÍDO");
+		}
+
+		if (!documentacao.getLea()){
+			System.out.println("A aeronave não apresenta o seguinte documento: LICENÇA DE ESTAÇÃO");
+		}
+		if (!documentacao.getReta()){
+			System.out.println("A aeronave não apresenta os SEGUROS OBRIGATÓRIOS");
+		}
+		if (!documentacao.getEo()){
+			System.out.println("A aeronave não apresenta ESPECIFICAÇÕES OPERACIONAIS");
+		}
+		if (!documentacao.getDb()){
+			System.out.println("A aeronave não emitiu DIARIO DE BORDO");
+		}
+		if (!documentacao.getNotoc()){
+			System.out.println("A aeronave nao emitiu o DOCUMENTO DE NOTIFICACAO AO CAPITAO");
+		}
+		if (!documentacao.getMc()){
+			System.out.println("A aeronave nao emitiu MANIFESTO DE CARGA");
+		}
+		if (!documentacao.getAwb()){
+			System.out.println("A aeronave nao apresentou o DOCUMENTO DE CONHECIMENTO DE TRANSPORTE AEREO");
+		}
+		if (!documentacao.getSd()){
+			System.out.println("A DECLARACAO DO EXPEDIDOR nao foi emitida");
+		}
+		if (!documentacao.getNf()){
+			System.out.println("A Aeronave nao emitiu NOTA FISCAL");
+		}
+	}
 }
-
-
