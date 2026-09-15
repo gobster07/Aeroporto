@@ -1,5 +1,7 @@
 package Documetacao;
 
+import Voos.Voo;
+
 import java.util.Scanner;
 
 public abstract class Documentos {
@@ -8,15 +10,27 @@ public abstract class Documentos {
 
 	private boolean ca;
 
+	private boolean car;
+
 	private boolean db;
 
-	private boolean cva;
-
-	private boolean radio;
+	private boolean lea;
 
 	private boolean reta;
 
-	public String getCm(){
+	private boolean eo;
+
+	public Documentos(){
+		this.cm = "";
+		this.ca = false;
+		this.car = false;
+		this.db = false;
+		this.lea = false;
+		this.reta = false;
+		this.eo = false;
+	}
+
+	public String getCm() {
 		return cm;
 	}
 
@@ -24,11 +38,7 @@ public abstract class Documentos {
 		this.cm = cm;
 	}
 
-	public abstract String toString();
-
-	public abstract void cadastraDocumento(Scanner in);
-
-	public boolean isCa() {
+	public boolean getCa() {
 		return ca;
 	}
 
@@ -36,7 +46,15 @@ public abstract class Documentos {
 		this.ca = ca;
 	}
 
-	public boolean isDb() {
+	public boolean getCar() {
+		return car;
+	}
+
+	public void setCar(boolean car) {
+		this.car = car;
+	}
+
+	public boolean getDb() {
 		return db;
 	}
 
@@ -44,27 +62,30 @@ public abstract class Documentos {
 		this.db = db;
 	}
 
-	public boolean isCva() {
-		return cva;
+	public boolean getLea() {
+		return lea;
 	}
 
-	public void setCva(boolean cva) {
-		this.cva = cva;
+	public void setLea(boolean lea) {
+		this.lea = lea;
 	}
 
-	public boolean isRadio() {
-		return radio;
-	}
-
-	public void setRadio(boolean radio) {
-		this.radio = radio;
-	}
-
-	public boolean isReta() {
+	public boolean getReta() {
 		return reta;
 	}
 
 	public void setReta(boolean reta) {
 		this.reta = reta;
 	}
+
+	public boolean getEo() {
+		return eo;
+	}
+
+	public void setEo(boolean eo) {
+		this.eo = eo;
+	}
+
+	public abstract void cadastraDocumento(Scanner in);
+
 }

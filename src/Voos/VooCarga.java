@@ -1,24 +1,26 @@
 package Voos;
+import  java.util.Scanner;
 
-import java.util.Scanner;
+public class VooCarga extends Voo {
 
-public class VooInternacional extends Voo {
+	private String num;
 
-	private String Num;
+	private String aeronave;
 
-	private String Aeronave;
+	private String companhia;
 
-	private String Companhia;
+	private double peso;
 
-	private double Combustivel;
+	private double capacidadeCarga;
 
-	private String Origem;
+	private double combustivel;
 
-	private String Destino;
+	private boolean situaçãoInsp;
 
-	private int documentação;
+	public String getTipo(){
+		return "Cargo";
+	}
 
-	@Override
 	public void cadastraVoo(Scanner in) {
 		System.out.println("Digite o número do voo");
 		String num = in.nextLine();
@@ -46,7 +48,10 @@ public class VooInternacional extends Voo {
 		in.nextLine();
 	}
 
-	@Override
+	public void exibirResumo(){
+
+	}
+
 	public void atualizaDocumento(Scanner in){
 	}
 
@@ -58,21 +63,12 @@ public class VooInternacional extends Voo {
 		return 0;
 	}
 
-
-	public void pendencia() {
-
-	}
-
-	public String getTipo() {
-		return null;
-	}
-
-	public void exibirResumo() {
-
-	}
-
 	public boolean autorizacao() {
 		return false;
 	}
 
+	public void pendencia() {}
+
 }
+
+

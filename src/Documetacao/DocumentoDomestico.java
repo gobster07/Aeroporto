@@ -2,18 +2,29 @@ package Documetacao;
 import java.util.Scanner;
 public class DocumentoDomestico extends Documentos {
 
-	private boolean pl;
+	private String cm;
+
+	private boolean ca;
+
+	private boolean car;
+
+	private boolean db;
+
+
+	private boolean lea;
+
+	private boolean reta;
+
+	private boolean eo;
 
 	public DocumentoDomestico(){
 		super();
-		this.pl = false;
 	}
 
-	@Override
 	public void cadastraDocumento(Scanner in) {
 		System.out.println("Digite a Matricula da Aeronave");
 		String cm = in.nextLine();
-		this.setCm(cm);
+		super.setCm(cm);
 
 		System.out.println("Responda as proximas perguntas com true ou false");
 
@@ -25,35 +36,20 @@ public class DocumentoDomestico extends Documentos {
 		boolean db = in.nextBoolean();
 		super.setDb(db);
 
-		System.out.println("A aeronave possui certificado de verificação de aeronavigabilidade?");
-		boolean cva = in.nextBoolean();
-		super.setCva(cva);
+		System.out.println("A aeronave apresenta Certificado de Ruído?");
+		boolean car = in.nextBoolean();
+		super.setCar(car);
 
-		System.out.println("A aeronave apresenta certificado de verificação de rádio?");
-		boolean radio = in.nextBoolean();
-		super.setRadio(radio);
+		System.out.println("A aeronave apresenta Licença de Estação?");
+		boolean lea = in.nextBoolean();
+		super.setLea(lea);
 
-		System.out.println("A aeronave apresenta os seguros obrigatórios(RETA) ?");
+		System.out.println("A aeronave apresenta Seguros Obrigatórios Regularizados?");
 		boolean reta = in.nextBoolean();
 		super.setReta(reta);
 
-		System.out.println("A aeronave apresenta lista de passageiros válida?");
-		boolean pl = in.nextBoolean();
-		this.setPl(pl);
+		System.out.println("A aeronave apresenta Especificações Operacionais");
+		boolean eo = in.nextBoolean();
+		super.setEo(eo);
 	}
-
-	@Override
-	public String toString(){
-		return "Matrícula: " + super.getCm()
-				+ "\nCertificado de Aeronavigabilidade: " + super.isCa();
-	}
-
-	public boolean getPl() {
-		return pl;
-	}
-
-	public void setPl(boolean pl) {
-		this.pl = pl;
-	}
-
 }
