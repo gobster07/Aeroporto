@@ -18,6 +18,7 @@ public class VooDomestico extends Voo {
 
 	@Override
 	public void cadastraVoo(Scanner in) {
+		in.nextLine();
 		System.out.println("Digite o número do voo");
 		String num = in.nextLine();
 		super.setNum(num);
@@ -63,7 +64,7 @@ public class VooDomestico extends Voo {
 
 	@Override
 	public boolean autorizacao() {
-		if (super.getAeronave().equalsIgnoreCase(documentacao.getCm())){
+		if (!super.getAeronave().equalsIgnoreCase(documentacao.getCm())){
 			return false;
 		}
 		else if (!documentacao.getCa()){
