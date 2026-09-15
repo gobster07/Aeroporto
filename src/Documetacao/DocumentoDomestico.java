@@ -2,27 +2,14 @@ package Documetacao;
 import java.util.Scanner;
 public class DocumentoDomestico extends Documentos {
 
-	private String cm;
-
-	private boolean ca;
-
-	private boolean db;
-
-	private boolean cva;
-
-	private boolean radio;
-
-	private boolean reta;
+	private boolean pl;
 
 	public DocumentoDomestico(){
-		this.cm = "";
-		this.ca = false;
-		this.db = false;
-		this.cva = false;
-		this.radio = false;
-		this.reta = false;
+		super();
+		this.pl = false;
 	}
 
+	@Override
 	public void cadastraDocumento(Scanner in) {
 		System.out.println("Digite a Matricula da Aeronave");
 		String cm = in.nextLine();
@@ -32,56 +19,41 @@ public class DocumentoDomestico extends Documentos {
 
 		System.out.println("A aeronave apresenta certificado de aeronavigabilidade?");
 		boolean ca = in.nextBoolean();
-		this.setCa(ca);
+		super.setCa(ca);
 
 		System.out.println("A aeronave apresenta diário de bordo?");
+		boolean db = in.nextBoolean();
+		super.setDb(db);
+
+		System.out.println("A aeronave possui certificado de verificação de aeronavigabilidade?");
+		boolean cva = in.nextBoolean();
+		super.setCva(cva);
+
+		System.out.println("A aeronave apresenta certificado de verificação de rádio?");
+		boolean radio = in.nextBoolean();
+		super.setRadio(radio);
+
+		System.out.println("A aeronave apresenta os seguros obrigatórios(RETA) ?");
+		boolean reta = in.nextBoolean();
+		super.setReta(reta);
+
+		System.out.println("A aeronave apresenta lista de passageiros válida?");
+		boolean pl = in.nextBoolean();
+		this.setPl(pl);
 	}
 
-	public String getCm() {
-		return cm;
+	@Override
+	public String toString(){
+		return "Matrícula: " + super.getCm()
+				+ "\nCertificado de Aeronavigabilidade: " + super.isCa();
 	}
 
-	public void setCm(String cm) {
-		this.cm = cm;
+	public boolean getPl() {
+		return pl;
 	}
 
-	public boolean isCa() {
-		return ca;
+	public void setPl(boolean pl) {
+		this.pl = pl;
 	}
 
-	public void setCa(boolean ca) {
-		this.ca = ca;
-	}
-
-	public boolean isDb() {
-		return db;
-	}
-
-	public void setDb(boolean db) {
-		this.db = db;
-	}
-
-	public boolean isCva() {
-		return cva;
-	}
-
-	public void setCva(boolean cva) {
-		this.cva = cva;
-	}
-
-	public boolean isRadio() {
-		return radio;
-	}
-
-	public void setRadio(boolean radio) {
-		this.radio = radio;
-	}
-
-	public boolean isReta() {
-		return reta;
-	}
-
-	public void setReta(boolean reta) {
-		this.reta = reta;
-	}
 }

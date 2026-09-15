@@ -27,7 +27,32 @@ public abstract class VooDomestico extends Voo {
 	}
 
 	public boolean autorização() {
-		return false;
+		boolean auth;
+		if (this.aeronave != this.documento.getCm()){
+			auth = false;
+		}
+
+		if (!this.documento.isCa()){
+			auth = false;
+		}
+
+		if (!this.documento.isCva()){
+			return false;
+		}
+
+		if (!this.documento.isDb()){
+			return false;
+		}
+
+		if (!this.documento.isRadio()){
+			return false;
+		}
+
+		if (!this.documento.isReta()){
+			return false;
+		}
+
+		return true;
 	}
 
 	public String pendencia() {

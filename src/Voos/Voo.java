@@ -1,5 +1,6 @@
 package Voos;
 
+import java.util.Scanner;
 import Documetacao.Documentos;
 
 public abstract class Voo implements aut {
@@ -17,6 +18,8 @@ public abstract class Voo implements aut {
 	private String destino;
 
 	private Documentos documento;
+
+	public abstract void cadastraVoo(Scanner in);
 
 	public abstract double calcularCusto();
 
