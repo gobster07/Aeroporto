@@ -1,7 +1,5 @@
 package Voos;
 
-import Documetacao.Documentos;
-
 import java.util.Scanner;
 
 public abstract class Voo implements aut {
@@ -34,53 +32,37 @@ public abstract class Voo implements aut {
 	}
 
 
-	public String getNum() {
-		return num;
-	}
+	public String getNum() {return num;}
 
-	public void setNum(String num) {
-		this.num = num;
-	}
+	public void setNum(String num) {this.num = num;}
 
-	public String getAeronave() {
-		return aeronave;
-	}
+	public String getAeronave() {return aeronave;}
 
-	public void setAeronave(String aeronave) {
-		this.aeronave = aeronave;
-	}
+	public void setAeronave(String aeronave) {this.aeronave = aeronave;}
 
-	public String getCompanhia() {
-		return companhia;
-	}
+	public String getCompanhia() {return companhia;}
 
-	public void setCompanhia(String companhia) {
-		this.companhia = companhia;
-	}
+	public void setCompanhia(String companhia) {this.companhia = companhia;}
 
-	public double getCombustivel() {
-		return combustivel;
-	}
+	public double getDistancia() {return distancia;}
 
-	public void setCombustivel(double combustivel) {
-		this.combustivel = combustivel;
-	}
+	public void setDistancia(double distancia) {this.distancia = distancia;}
 
-	public String getOrigem() {
-		return origem;
-	}
+	public double getConsumo() {return consumo;}
 
-	public void setOrigem(String origem) {
-		this.origem = origem;
-	}
+	public void setConsumo(double consumo) {this.consumo = consumo;}
 
-	public String getDestino() {
-		return Destino;
-	}
+	public double getCombustivel() {return combustivel;}
 
-	public void setDestino(String destino) {
-		Destino = destino;
-	}
+	public void setCombustivel(double combustivel) {this.combustivel = combustivel;}
+
+	public String getOrigem() {return origem;}
+
+	public void setOrigem(String origem) {this.origem = origem;}
+
+	public String getDestino() {return Destino;}
+
+	public void setDestino(String destino) {Destino = destino;}
 
 
 	public abstract double calcularCusto();

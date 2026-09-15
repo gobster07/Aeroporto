@@ -38,9 +38,9 @@ public class VooDomestico extends Voo {
 		String destino = in.nextLine();
 		super.setDestino(destino);
 
-		System.out.println("Digite a quantidade de combustivel no tanque");
-		double combustivel = in.nextDouble();
-		super.setCombustivel(combustivel);
+		System.out.println("Digite a distancia entre a origem e o destino");
+		double distancia = in.nextDouble();
+		super.setDistancia(distancia);
 		in.nextLine();
 
 		documentacao.cadastraDocumento(in);
