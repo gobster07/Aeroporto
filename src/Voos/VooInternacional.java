@@ -4,19 +4,24 @@ import java.util.Scanner;
 
 public class VooInternacional extends Voo {
 
-	private String Num;
+	private int documentacao;
+	private int nPassageiros;
 
-	private String Aeronave;
+	public int getDocumentacao() {
+		return documentacao;
+	}
 
-	private String Companhia;
+	public void setDocumentacao(int documentacao) {
+		this.documentacao = documentacao;
+	}
 
-	private double Combustivel;
+	public int getnPassageiros() {
+		return nPassageiros;
+	}
 
-	private String Origem;
-
-	private String Destino;
-
-	private int documentação;
+	public void setnPassageiros(int nPassageiros) {
+		this.nPassageiros = nPassageiros;
+	}
 
 	@Override
 	public void cadastraVoo(Scanner in) {
@@ -44,23 +49,30 @@ public class VooInternacional extends Voo {
 		double distancia = in.nextDouble();
 		super.setDistancia(distancia);
 		in.nextLine();
+
+		System.out.println("Digite quantos passageiros estarao no voo:");
+		int passageiros = in.nextInt();
+		setnPassageiros(passageiros);
 	}
 
 	@Override
 	public void atualizaDocumento(Scanner in){
 	}
 
-	public double calcularCusto() {
-		return 0;
-	}
-
 	public double calcularCombustivel() {
-		return 0;
+		double combTotal= super.getDistancia()*0.12;
+		double pct = combTotal/5;
+		combTotal = combTotal+pct;
+
+		return combTotal;
 	}
 
+	public double calcularCusto() {
+		double custoTotal = (super.getDistancia()*12)+(getnPassageiros() *60)+8000;
+		return custoTotal;
+	}
 
-	public void pendencia() {
-
+	public void pendencia(){
 	}
 
 	public String getTipo() {

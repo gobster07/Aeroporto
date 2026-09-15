@@ -3,24 +3,26 @@ import  java.util.Scanner;
 
 public class VooCarga extends Voo {
 
-	private String num;
-
-	private String aeronave;
-
-	private String companhia;
-
 	private double peso;
 
 	private double capacidadeCarga;
 
-	private double combustivel;
+	private boolean situacaoInsp;
 
-	private boolean situaçãoInsp;
+	public double getPeso() {
+		return peso;
+	}
 
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+
+	@Override
 	public String getTipo(){
 		return "Cargo";
 	}
 
+	@Override
 	public void cadastraVoo(Scanner in) {
 		System.out.println("Digite o número do voo");
 		String num = in.nextLine();
@@ -46,27 +48,37 @@ public class VooCarga extends Voo {
 		double distancia = in.nextDouble();
 		super.setDistancia(distancia);
 		in.nextLine();
+		System.out.println("Digite o peso da carga");
+		double peso = in.nextDouble();
+		setPeso(peso);
 	}
 
+	@Override
 	public void exibirResumo(){
 
 	}
 
+	@Override
 	public void atualizaDocumento(Scanner in){
 	}
-
-	public double calcularCusto() {
-		return 0;
-	}
-
+	@Override
 	public double calcularCombustivel() {
-		return 0;
+
+		double combTotal = (super.getDistancia()*0.15)+(peso*0.02);
+		return combTotal;
+	}
+	@Override
+	public double calcularCusto() {
+		double custoTotal = (super.getDistancia()*8.5)+(peso*1.5);
+		return custoTotal;
 	}
 
+	@Override
 	public boolean autorizacao() {
 		return false;
 	}
 
+	@Override
 	public void pendencia() {}
 
 }

@@ -9,7 +9,23 @@ import java.util.Scanner;
 public class VooDomestico extends Voo {
 
 	private Documentos documentacao;
+	private int nPassageiros;
 
+	public Documentos getDocumentacao() {
+		return documentacao;
+	}
+
+	public void setDocumentacao(Documentos documentacao) {
+		this.documentacao = documentacao;
+	}
+
+	public int getnPassageiros() {
+		return nPassageiros;
+	}
+
+	public void setnPassageiros(int nPassageiros) {
+		this.nPassageiros = nPassageiros;
+	}
 
 	public VooDomestico() {
 		super();
@@ -52,13 +68,16 @@ public class VooDomestico extends Voo {
 	}
 
 	@Override
-	public double calcularCusto() {
-		return 0;
+	public double calcularCombustivel() {
+		double combTotal = super.getDistancia()*0.12;
+		return combTotal;
 	}
 
 	@Override
-	public double calcularCombustivel() {
-		return 0;
+	public double calcularCusto() {
+		double custoTotal = (super.getDistancia()*8.5)+(getnPassageiros() *35);
+
+		return custoTotal;
 	}
 
 	@Override
