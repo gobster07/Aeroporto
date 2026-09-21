@@ -17,7 +17,7 @@ public class DocumentoCargo extends Documentos {
 
     private boolean nf;
 
-    @Override
+    @Override //polimorfismo (sobrescreve o método abstrato de Documentos)
     public void cadastraDocumento(Scanner in) {
         System.out.println("Digite a Matricula da Aeronave");
         String cm = in.nextLine();
@@ -110,10 +110,3 @@ public class DocumentoCargo extends Documentos {
         this.mc = mc;
     }
 }
-
-
-
-
-
-
-

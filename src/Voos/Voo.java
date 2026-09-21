@@ -2,7 +2,7 @@ package Voos;
 
 import java.util.Scanner;
 
-public abstract class Voo implements aut {
+public abstract class Voo implements aut { //polimorfismo (classe abstrata + implementação da interface aut)
 
 	private String num;
 
@@ -65,21 +65,21 @@ public abstract class Voo implements aut {
 	public void setDestino(String destino) {Destino = destino;}
 
 
-	public abstract double calcularCusto();
+	public abstract double calcularCusto(); //polimorfismo (método abstrato: cada tipo de voo calcula o custo de forma diferente)
 
-	public abstract double calcularCombustivel();
+	public abstract double calcularCombustivel(); //polimorfismo (método abstrato: cada tipo de voo calcula o combustível de forma diferente)
 
-	public abstract String getTipo();
+	public abstract String getTipo(); //polimorfismo (método abstrato: cada tipo de voo retorna seu próprio tipo)
 
-	public abstract void pendencia();
+	public abstract void pendencia(); //polimorfismo (método abstrato, vindo da interface aut, implementado de forma diferente em cada subclasse)
 
-	public abstract void exibirResumo();
+	public abstract void exibirResumo(); //polimorfismo (método abstrato: cada tipo de voo exibe seu resumo de forma diferente)
 
-	public abstract void cadastraVoo(Scanner in);
+	public abstract void cadastraVoo(Scanner in); //polimorfismo (método abstrato: cada tipo de voo cadastra seus próprios dados)
 
-	public abstract boolean autorizacao();
+	public abstract boolean autorizacao(); //polimorfismo (método abstrato, vindo da interface aut, implementado de forma diferente em cada subclasse)
 
-	public abstract void atualizaDocumento(Scanner in);
+	public abstract void atualizaDocumento(Scanner in); //polimorfismo (método abstrato: cada tipo de voo atualiza sua documentação de forma diferente)
 
 
 

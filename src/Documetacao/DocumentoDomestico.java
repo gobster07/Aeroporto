@@ -21,7 +21,7 @@ public class DocumentoDomestico extends Documentos {
 		super();
 	}
 
-	public void cadastraDocumento(Scanner in) {
+	public void cadastraDocumento(Scanner in) { //polimorfismo (sobrescreve o método abstrato de Documentos)
 		System.out.println("Digite a Matricula da Aeronave");
 		String cm = in.nextLine();
 		super.setCm(cm);

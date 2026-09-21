@@ -25,7 +25,7 @@ public class VooInternacional extends Voo {
 	}
 
 	@Override
-	public void cadastraVoo(Scanner in) {
+	public void cadastraVoo(Scanner in) { //polimorfismo (sobrescreve o método abstrato de Voo)
 		System.out.println("Digite o número do voo");
 		String num = in.nextLine();
 		super.setNum(num);
@@ -57,10 +57,10 @@ public class VooInternacional extends Voo {
 	}
 
 	@Override
-	public void atualizaDocumento(Scanner in){
+	public void atualizaDocumento(Scanner in){ //polimorfismo (sobrescreve o método abstrato de Voo)
 	}
 
-	public double calcularCombustivel() {
+	public double calcularCombustivel() { //polimorfismo (sobrescreve o método abstrato de Voo)
 		double combTotal= super.getDistancia()*0.12;
 		double pct = combTotal/5;
 		combTotal = combTotal+pct;
@@ -68,12 +68,12 @@ public class VooInternacional extends Voo {
 		return combTotal;
 	}
 
-	public double calcularCusto() {
+	public double calcularCusto() { //polimorfismo (sobrescreve o método abstrato de Voo)
 		double custoTotal = (super.getDistancia()*12)+(getnPassageiros() *60)+8000;
 		return custoTotal;
 	}
 
-	public void pendencia(){
+	public void pendencia(){ //polimorfismo (sobrescreve o método abstrato de Voo, vindo da interface aut)
 		if (!super.getAeronave().equalsIgnoreCase(documentacao.getCm())){
 			System.out.println("Matricula difere na documentação da aeronave");
 		}
@@ -103,15 +103,15 @@ public class VooInternacional extends Voo {
 		}
 	}
 
-	public String getTipo() {
+	public String getTipo() { //polimorfismo (sobrescreve o método abstrato de Voo)
 		return null;
 	}
 
-	public void exibirResumo() {
+	public void exibirResumo() { //polimorfismo (sobrescreve o método abstrato de Voo)
 
 	}
 
-	public boolean autorizacao() {
+	public boolean autorizacao() { //polimorfismo (sobrescreve o método abstrato de Voo, vindo da interface aut)
 		return false;
 	}
 

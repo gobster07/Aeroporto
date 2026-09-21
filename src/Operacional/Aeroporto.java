@@ -9,18 +9,18 @@ import java.util.Scanner;
 
 public class Aeroporto {
 
-    private ArrayList<Voo> voos = new ArrayList<>();
+    private ArrayList<Voo> voos = new ArrayList<>(); //polimorfismo (lista guarda referências do tipo Voo, mas armazena objetos VooDomestico/VooInternacional/VooCarga)
 
     public Aeroporto() {
         voos = new ArrayList<>();
     }
 
     public void adicionarVoo(Scanner in) {
-        Voo vooD = new VooDomestico();
+        Voo vooD = new VooDomestico(); //polimorfismo (referência Voo apontando para um objeto VooDomestico)
 
-        Voo vooI = new VooInternacional();
+        Voo vooI = new VooInternacional(); //polimorfismo (referência Voo apontando para um objeto VooInternacional)
 
-        Voo vooC = new VooCarga();
+        Voo vooC = new VooCarga(); //polimorfismo (referência Voo apontando para um objeto VooCarga)
 
         System.out.println("Qual o tipo do Voo ?");
         System.out.println("1 - Domestico");
@@ -31,7 +31,7 @@ public class Aeroporto {
 
         switch (op) {
             case 1:
-                vooD.cadastraVoo(in);
+                vooD.cadastraVoo(in); //polimorfismo (chamada via referência Voo executa a versão de VooDomestico em tempo de execução)
 
                 if (autCadastro(vooD)){
                     this.voos.add(vooD);
@@ -39,14 +39,14 @@ public class Aeroporto {
 
                 break;
             case 2:
-                vooI.cadastraVoo(in);
+                vooI.cadastraVoo(in); //polimorfismo (chamada via referência Voo executa a versão de VooInternacional em tempo de execução)
 
                 if (autCadastro(vooI)){
                     this.voos.add(vooI);
                 }
                 break;
             case 3:
-                vooC.cadastraVoo(in);
+                vooC.cadastraVoo(in); //polimorfismo (chamada via referência Voo executa a versão de VooCarga em tempo de execução)
                 if (autCadastro(vooC)){
                     this.voos.add(vooC);
                 }
@@ -57,8 +57,8 @@ public class Aeroporto {
 
     }
 
-    public int indetificaTipoVoo(Voo voo) {
-        String tipo = voo.getTipo();
+    public int indetificaTipoVoo(Voo voo) { //polimorfismo (parâmetro do tipo Voo aceita qualquer subclasse)
+        String tipo = voo.getTipo(); //polimorfismo (chamada via referência Voo executa a versão de getTipo() do objeto real em tempo de execução)
         if (tipo.equalsIgnoreCase("Domestico")){
             return 0;
         }
@@ -103,7 +103,7 @@ public class Aeroporto {
 
         for (int i = 0; i < this.voos.size(); i++) {
             if (n.equalsIgnoreCase(voos.get(i).getNum())){
-                voos.get(i).exibirResumo();
+                voos.get(i).exibirResumo(); //polimorfismo (chamada via referência Voo executa a versão de exibirResumo() do objeto real em tempo de execução)
                 return;
             }
         }
@@ -111,27 +111,27 @@ public class Aeroporto {
 
     public void mostraVoo() {
         for (int i = 0; i < this.voos.size(); i++) {
-            voos.get(i).exibirResumo();
+            voos.get(i).exibirResumo(); //polimorfismo (chamada via referência Voo executa a versão de exibirResumo() do objeto real em tempo de execução)
         }
     }
 
     public void mostraAutorizados(){
         for (int i = 0; i < this.voos.size(); i++) {
-            if (this.voos.get(i).autorizacao()){
-                voos.get(i).exibirResumo();
+            if (this.voos.get(i).autorizacao()){ //polimorfismo (chamada via referência Voo executa a versão de autorizacao() do objeto real em tempo de execução)
+                voos.get(i).exibirResumo(); //polimorfismo (chamada via referência Voo executa a versão de exibirResumo() do objeto real em tempo de execução)
             }
         }
     }
 
     public void mostraNaoAutorizados(){
         for (int i = 0; i < this.voos.size(); i++) {
-            if (!this.voos.get(i).autorizacao()){
-                voos.get(i).exibirResumo();
+            if (!this.voos.get(i).autorizacao()){ //polimorfismo (chamada via referência Voo executa a versão de autorizacao() do objeto real em tempo de execução)
+                voos.get(i).exibirResumo(); //polimorfismo (chamada via referência Voo executa a versão de exibirResumo() do objeto real em tempo de execução)
             }
         }
     }
 
-    public boolean autCadastro(Voo voo) {
+    public boolean autCadastro(Voo voo) { //polimorfismo (parâmetro do tipo Voo aceita qualquer subclasse)
         for (int i = 0; i < this.voos.size(); i++) {
             if (voo.getNum().equals(this.voos.get(i).getNum())) {
                 System.out.println("Voo com código já existente");

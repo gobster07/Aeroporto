@@ -27,12 +27,12 @@ public class VooCarga extends Voo {
 		this.documentacao = documentacao;
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo)
 	public String getTipo() {
 		return "Cargo";
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo)
 	public void cadastraVoo(Scanner in) {
 		System.out.println("Digite o número do voo");
 		String num = in.nextLine();
@@ -63,34 +63,34 @@ public class VooCarga extends Voo {
 		setPeso(peso);
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo)
 	public void exibirResumo() {
 
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo)
 	public void atualizaDocumento(Scanner in) {
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo)
 	public double calcularCombustivel() {
 
 		double combTotal = (super.getDistancia() * 0.15) + (peso * 0.02);
 		return combTotal;
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo)
 	public double calcularCusto() {
 		double custoTotal = (super.getDistancia() * 8.5) + (peso * 1.5);
 		return custoTotal;
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo, vindo da interface aut)
 	public boolean autorizacao() {
 
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo, vindo da interface aut)
 	public void pendencia() {
 		if (!super.getAeronave().equalsIgnoreCase(documentacao.getCm())){
 			System.out.println("Matricula difere na documentação da aeronave");

@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class VooDomestico extends Voo {
 
-	private Documentos documentacao;
+	private Documentos documentacao; //polimorfismo (referência do tipo abstrato Documentos, guarda um objeto DocumentoDomestico)
 	private int nPassageiros;
 
 	public Documentos getDocumentacao() {
@@ -32,7 +32,7 @@ public class VooDomestico extends Voo {
 		this.documentacao = new DocumentoDomestico();
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo)
 	public void cadastraVoo(Scanner in) {
 		in.nextLine();
 		System.out.println("Digite o número do voo");
@@ -60,28 +60,28 @@ public class VooDomestico extends Voo {
 		super.setDistancia(distancia);
 		in.nextLine();
 
-		documentacao.cadastraDocumento(in);
+		documentacao.cadastraDocumento(in); //polimorfismo (chamada através da referência Documentos, executa a versão de DocumentoDomestico em tempo de execução)
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo)
 	public void atualizaDocumento(Scanner in){
-		documentacao.cadastraDocumento(in);
+		documentacao.cadastraDocumento(in); //polimorfismo (chamada através da referência Documentos, executa a versão de DocumentoDomestico em tempo de execução)
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo)
 	public double calcularCombustivel() {
 		double combTotal = super.getDistancia()*0.12;
 		return combTotal;
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo)
 	public double calcularCusto() {
 		double custoTotal = (super.getDistancia()*8.5)+(getnPassageiros() *35);
 
 		return custoTotal;
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo, vindo da interface aut)
 	public boolean autorizacao() {
 		if (!super.getAeronave().equalsIgnoreCase(documentacao.getCm())){
 			return false;
@@ -109,7 +109,7 @@ public class VooDomestico extends Voo {
 		return true;
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo, vindo da interface aut)
 	public void pendencia() {
 		if (!super.getAeronave().equalsIgnoreCase(documentacao.getCm())){
 			System.out.println("Matricula difere na documentação da aeronave");
@@ -137,12 +137,12 @@ public class VooDomestico extends Voo {
 		}
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo)
 	public String getTipo() {
 		return "Voo Domestico";
 	}
 
-	@Override
+	@Override //polimorfismo (sobrescreve o método abstrato de Voo)
 	public void exibirResumo() {
 		System.out.println("==Voo Domestico==");
 		System.out.println("Numero do voo: " + super.getNum());
