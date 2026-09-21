@@ -86,6 +86,6 @@ public abstract class Documentos {
 		this.eo = eo;
 	}
 
-	public abstract void cadastraDocumento(Scanner in);
+	public abstract void cadastraDocumento(Scanner in); //polimorfismo (método abstrato: cada subclasse fornece sua própria implementação)
 
 }
